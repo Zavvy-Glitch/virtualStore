@@ -1,4 +1,6 @@
 import './App.css';
+import Header from './components/header.js';
+import Footer from './components/footer.js';
 import { connect } from 'react-redux';
 import Box from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
@@ -8,10 +10,11 @@ import Button from '@mui/material/Button';
 function App(props) {
   return (
     <div className='App'>
+    <Header/>
       <Grid container spacing={8} 
             justifyContent='center'
             sx={{margin:'250px 0px 0px 0px'}}>
-              
+
       {props.count.products.map((product, idx) => {
         return (
           <Grid item key={idx}>
@@ -39,6 +42,7 @@ function App(props) {
         );
       })}
       </Grid>
+      <Footer />
     </div>
   );
 }
