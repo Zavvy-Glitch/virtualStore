@@ -2,11 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { Provider } from 'react-redux';
+import store from '../src/components/index.js';
 import reportWebVitals from './reportWebVitals';
+import Header from './components/header.js';
+import Footer from './components/footer.js';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store()}>
+      <Header />
+        <App />
+      <Footer />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
