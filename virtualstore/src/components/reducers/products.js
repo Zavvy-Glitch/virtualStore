@@ -29,7 +29,6 @@ let initialState = {
       count: 1,
     },
   ],
-  totalCount: 0,
 };
 
 function productReducer(state = initialState, action) {
@@ -37,7 +36,6 @@ function productReducer(state = initialState, action) {
 
   switch (type) {
     case 'DECREMENT':
-      let totalCount = state.totalCount - 1;
       let products = state.products.map((product) => {
         if (product.count === payload) {
           return { ...product, totalCount: product.count - 1 };
@@ -45,9 +43,6 @@ function productReducer(state = initialState, action) {
           return product;
         }
       });
-      return { products, totalCount }
-      case 'RESET_COUNT':
-        return initialState;
         default:
           return state;
   }
