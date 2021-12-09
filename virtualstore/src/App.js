@@ -5,12 +5,15 @@ import { connect } from 'react-redux';
 import Box from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
+import { selectCategory } from './components/reducers/categories';
 
 
 function App(props) {
   return (
     <div className='App'>
-    <Header/>
+    <Header>
+      
+    </Header>
       <Grid container spacing={8} 
             justifyContent='center'
             sx={{margin:'250px 0px 0px 0px'}}>
@@ -50,11 +53,13 @@ function App(props) {
 const mapStateToProps = state => {
   return {
     count: state.count,
+    category: state.category,
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   decrement: (count) => dispatch({ type: 'DECREMENT', payload: count }),
+  selectCategory: (category) => dispatch(selectCategory(category))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
