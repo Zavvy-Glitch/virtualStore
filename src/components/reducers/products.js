@@ -38,7 +38,7 @@ function productReducer(state = initialState, action) {
     case 'DECREMENT':
       let products = state.products.map((product) => {
         if (product.count === payload) {
-          return { ...product, totalCount: product.count - 1 };
+          return { ...product, count: products.count - 1 };
         } else {
           return product;
         }
